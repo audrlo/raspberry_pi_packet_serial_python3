@@ -42,7 +42,7 @@ time.sleep(5)
 print("Trying Speed")
 for i in range(20):
     roboclaw.SpeedM1(address, 500 * i)
-    roboclaw.SpeedM2(address, 500 * i)
+    roboclaw.SpeedM2(address, -500 * i)
     print(roboclaw.ReadSpeedM1(address)[1] + roboclaw.ReadSpeedM2(address)[1])
     time.sleep(0.05)
 time.sleep(5)
