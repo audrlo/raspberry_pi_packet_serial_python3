@@ -10,10 +10,10 @@ result, version = roboclaw.ReadVersion(address)
 print("Success:", result)
 print("Version:", version)
 
-roboclaw.forward_m1(address, 64)  # Half speed
+roboclaw.ForwardM1(address, 64)  # Half speed
 print("Move???")
 time.sleep(2)
-roboclaw.forward_m1(address, 0)   # Stop
+roboclaw.ForwardM1(address, 0)   # Stop
 print("stopped")
 
 # Check voltage
