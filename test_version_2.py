@@ -10,10 +10,10 @@ result, version = roboclaw.ReadVersion(address)
 print("Success:", result)
 print("Version:", version)
 
-roboclaw.ForwardM1(address, 64)  # Half speed
+roboclaw.forward_m1(address, 64)  # Half speed
 print("Move???")
 time.sleep(2)
-roboclaw.ForwardM1(address, 0)   # Stop
+roboclaw.forward_m1(address, 0)   # Stop
 print("stopped")
 
 # Check voltage
@@ -24,7 +24,9 @@ print("Battery voltage:", volts / 10.0, "V")
 print("Trying DutyM1...")
 roboclaw.DutyM1(address, 32767)
 roboclaw.DutyM2(address, -32767)
-time.sleep(2)
+for i in range(40):
+    print(roboclaw.ReadSpeedM1(address) + ', ' + roboclaw.ReadSpeedM2(address))
+    time.sleep(0.05)
 roboclaw.DutyM1(address, 0)
 roboclaw.DutyM2(address, 0)
 print("Done.")
@@ -34,7 +36,9 @@ time.sleep(5)
 print("Trying Speed")
 roboclaw.SpeedM1(address, 10000)  # 10k encoder ticks/sec
 roboclaw.SpeedM2(address, -10000)
-time.sleep(5)
+for i in range(100):
+    print(roboclaw.ReadSpeedM1(address) + ', ' + roboclaw.ReadSpeedM2(address))
+    time.sleep(0.05)
 roboclaw.SpeedM1(address, 0)
 roboclaw.SpeedM2(address, 0)
 print("Done")
