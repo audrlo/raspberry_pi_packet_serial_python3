@@ -28,8 +28,8 @@ for i in range(20):
     print(roboclaw.ReadSpeedM1(address)[1] + roboclaw.ReadSpeedM2(address)[1])
     time.sleep(0.05)
 for i in range(20):
-    roboclaw.DutyM1(address, 32767)
-    roboclaw.DutyM2(address, -32767)
+    roboclaw.DutyM1(address, 819 * (20 -i))
+    roboclaw.DutyM2(address, -819 * (20 -i))
     print(roboclaw.ReadSpeedM1(address)[1] + roboclaw.ReadSpeedM2(address)[1])
     time.sleep(0.05)
 roboclaw.DutyM1(address, 0)
@@ -40,13 +40,13 @@ time.sleep(5)
 
 print("Trying Speed")
 for i in range(20):
-    roboclaw.SpeedM1(address, 250 * i)
-    roboclaw.SpeedM2(address, -250 * i)
+    roboclaw.DutyM1(address, 819 * i)
+    roboclaw.DutyM2(address, -819 * i)
     print(roboclaw.ReadSpeedM1(address)[1] + roboclaw.ReadSpeedM2(address)[1])
     time.sleep(0.05)
 for i in range(20):
-    roboclaw.SpeedM1(address, 10000)
-    roboclaw.SpeedM2(address, -10000)
+    roboclaw.DutyM1(address, 819 * (20 -i))
+    roboclaw.DutyM2(address, -819 * (20 -i))
     print(roboclaw.ReadSpeedM1(address)[1] + roboclaw.ReadSpeedM2(address)[1])
     time.sleep(0.05)
 roboclaw.SpeedM1(address, 0)
