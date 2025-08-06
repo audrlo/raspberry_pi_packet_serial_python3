@@ -25,7 +25,7 @@ print("Trying DutyM1...")
 roboclaw.DutyM1(address, 32767)
 roboclaw.DutyM2(address, -32767)
 for i in range(40):
-    print(str(roboclaw.ReadSpeedM1(address)) + ', ' + str(roboclaw.ReadSpeedM2(address)))
+    print(roboclaw.ReadSpeedM1(address)[1] - roboclaw.ReadSpeedM2(address)[1])
     time.sleep(0.05)
 roboclaw.DutyM1(address, 0)
 roboclaw.DutyM2(address, 0)
@@ -37,7 +37,7 @@ print("Trying Speed")
 roboclaw.SpeedM1(address, 10000)  # 10k encoder ticks/sec
 roboclaw.SpeedM2(address, -10000)
 for i in range(100):
-    print(str(roboclaw.ReadSpeedM1(address)) + ', ' + str(roboclaw.ReadSpeedM2(address)))
+    print(roboclaw.ReadSpeedM1(address)[1] - roboclaw.ReadSpeedM2(address)[1])
     time.sleep(0.05)
 roboclaw.SpeedM1(address, 0)
 roboclaw.SpeedM2(address, 0)
