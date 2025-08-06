@@ -27,6 +27,7 @@ for i in range(20):
     roboclaw.DutyM2(address, -1638 * i)
     print(roboclaw.ReadSpeedM1(address)[1] + roboclaw.ReadSpeedM2(address)[1])
     time.sleep(0.05)
+time.sleep(5)
 for i in range(20):
     roboclaw.DutyM1(address, 1638 * (20 -i))
     roboclaw.DutyM2(address, -1638 * (20 -i))
@@ -44,6 +45,7 @@ for i in range(20):
     roboclaw.DutyM2(address, -1638 * i)
     print(roboclaw.ReadSpeedM1(address)[1] + roboclaw.ReadSpeedM2(address)[1])
     time.sleep(0.05)
+time.sleep(5)
 for i in range(20):
     roboclaw.DutyM1(address, 1638 * (20 -i))
     roboclaw.DutyM2(address, -1638 * (20 -i))
